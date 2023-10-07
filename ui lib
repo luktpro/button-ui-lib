@@ -1,0 +1,212 @@
+local library = {}
+
+function library:CreateWindow()
+	local screen_gui = Instance.new("ScreenGui")
+	screen_gui.IgnoreGuiInset = false
+	screen_gui.ResetOnSpawn = true
+	screen_gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	screen_gui.Parent = game.CoreGui
+
+	local main_button = Instance.new("Frame")
+	main_button.Active = true
+	main_button.AnchorPoint = Vector2.new(0.5, 0.5)
+	main_button.BackgroundColor3 = Color3.new(0.415686, 0.415686, 0.415686)
+	main_button.BackgroundTransparency = 0.30000001192092896
+	main_button.BorderColor3 = Color3.new(0, 0, 0)
+	main_button.BorderSizePixel = 0
+	main_button.Position = UDim2.new(0.5, 0, 0.0412621424, 0)
+	main_button.Size = UDim2.new(0, 48, 0, 48)
+	main_button.Visible = true
+	main_button.Name = "MainButton"
+	main_button.Parent = screen_gui
+	
+	local uicorner = Instance.new("UICorner")
+	uicorner.CornerRadius = UDim.new(2, 40)
+	uicorner.Parent = main_button
+
+	local fluencyicon = Instance.new("ImageLabel")
+	fluencyicon.Image = "rbxassetid://14188620470"
+	fluencyicon.ScaleType = Enum.ScaleType.Fit
+	fluencyicon.AnchorPoint = Vector2.new(0.5, 0.5)
+	fluencyicon.BackgroundColor3 = Color3.new(1, 1, 1)
+	fluencyicon.BackgroundTransparency = 1
+	fluencyicon.BorderColor3 = Color3.new(0, 0, 0)
+	fluencyicon.BorderSizePixel = 0
+	fluencyicon.Position = UDim2.new(0.489583343, 0, 0.489583343, 0)
+	fluencyicon.Size = UDim2.new(0, 37, 0, 37)
+	fluencyicon.Visible = true
+	fluencyicon.Name = "fluency_icon"
+	fluencyicon.Parent = main_button
+
+	local uistroke = Instance.new("UIStroke")
+	uistroke.Color = Color3.new(1, 1, 1)
+	uistroke.Parent = main_button
+
+	local default = Instance.new("UIGradient")
+	default.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(0, 0.235294, 1)), ColorSequenceKeypoint.new(1, Color3.new(1, 0, 0.0156863))})
+	default.Name = "Default"
+	default.Parent = uistroke
+	
+	local default_3 = Instance.new("UIGradient")
+	default_3.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(0, 0.235294, 1)), ColorSequenceKeypoint.new(1, Color3.new(1, 0, 0.0156863))})
+	default_3.Name = "Default"
+	default_3.Parent = main_button
+	
+	local frame = Instance.new("Frame")
+	frame.Active = true
+	frame.AnchorPoint = Vector2.new(0.5, 0.5)
+	frame.BackgroundColor3 = Color3.new(1, 1, 1)
+	frame.BackgroundTransparency = 1
+	frame.BorderColor3 = Color3.new(0, 0, 0)
+	frame.BorderSizePixel = 0
+	frame.Position = UDim2.new(0.5, 0, 1.75, 0)
+	frame.Size = UDim2.new(0, 603, 0, 51)
+	frame.Visible = true
+	frame.Parent = main_button
+
+	local uilist_layout = Instance.new("UIListLayout")
+	uilist_layout.Padding = UDim.new(0, 14)
+	uilist_layout.FillDirection = Enum.FillDirection.Horizontal
+	uilist_layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	uilist_layout.SortOrder = Enum.SortOrder.LayoutOrder
+	uilist_layout.VerticalAlignment = Enum.VerticalAlignment.Center
+	uilist_layout.Parent = frame
+	
+	local local_script = Instance.new("LocalScript")
+	local_script.Parent = main_button
+	
+	local themes = Instance.new("Folder")
+	themes.Name = "Themes"
+	themes.Parent = screen_gui
+
+	local default_4 = Instance.new("UIGradient")
+	default_4.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(0, 0.235294, 1)), ColorSequenceKeypoint.new(1, Color3.new(1, 0, 0.0156863))})
+	default_4.Name = "Default"
+	default_4.Parent = themes
+
+	local redandblack = Instance.new("UIGradient")
+	redandblack.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(0, 0, 0)), ColorSequenceKeypoint.new(1, Color3.new(1, 0, 0.0156863))})
+	redandblack.Name = "Red and black"
+	redandblack.Parent = themes
+
+	local white = Instance.new("UIGradient")
+	white.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(1, 1, 1)), ColorSequenceKeypoint.new(1, Color3.new(0.623529, 0.623529, 0.623529))})
+	white.Name = "White"
+	white.Parent = themes
+
+	local dark = Instance.new("UIGradient")
+	dark.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(0.0588235, 0.0588235, 0.0588235)), ColorSequenceKeypoint.new(1, Color3.new(0.156863, 0.156863, 0.156863))})
+	dark.Name = "Dark"
+	
+	local default_3 = Instance.new("UIGradient")
+	default_3.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(0, 0.235294, 1)), ColorSequenceKeypoint.new(1, Color3.new(1, 0, 0.0156863))})
+	default_3.Name = "Default"
+	default_3.Parent = main_button
+	
+	local Buttons = {}
+	
+	function Buttons:CreateButton(text)
+		local button = Instance.new("Frame")
+		button.BackgroundColor3 = Color3.new(0.415686, 0.415686, 0.415686)
+		button.BackgroundTransparency = 0.30000001192092896
+		button.BorderColor3 = Color3.new(0, 0, 0)
+		button.BorderSizePixel = 0
+		button.Position = UDim2.new(0.458540618, 0, -1.2647059, 0)
+		button.Size = UDim2.new(0, 48, 0, 48)
+		button.Visible = true
+		button.Name = "Button"
+		button.Parent = frame
+
+		local uicorner_2 = Instance.new("UICorner")
+		uicorner_2.CornerRadius = UDim.new(2, 40)
+		uicorner_2.Parent = button
+
+		local default_2 = Instance.new("UIGradient")
+		default_2.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(0, 0.235294, 1)), ColorSequenceKeypoint.new(1, Color3.new(1, 0, 0.0156863))})
+		default_2.Name = "Default"
+		default_2.Parent = button
+
+		local uistroke_2 = Instance.new("UIStroke")
+		uistroke_2.Color = Color3.new(1, 1, 1)
+		uistroke_2.Parent = button
+
+		local uigradient = Instance.new("UIGradient")
+		uigradient.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(0, 0.235294, 1)), ColorSequenceKeypoint.new(1, Color3.new(1, 0, 0.0156863))})
+		uigradient.Parent = uistroke_2
+
+		local text_label = Instance.new("TextLabel")
+		text_label.Font = Enum.Font.Unknown
+		text_label.Text = text
+		text_label.TextColor3 = Color3.new(1, 1, 1)
+		text_label.TextSize = 15
+		text_label.TextTruncate = Enum.TextTruncate.AtEnd
+		text_label.BackgroundColor3 = Color3.new(1, 1, 1)
+		text_label.BackgroundTransparency = 1
+		text_label.BorderColor3 = Color3.new(0, 0, 0)
+		text_label.BorderSizePixel = 0
+		text_label.Position = UDim2.new(-0.159090683, 0, 1.12812483, 0)
+		text_label.Size = UDim2.new(0, 62, 0, 15)
+		text_label.Visible = true
+		text_label.Parent = button
+
+		local uistroke_3 = Instance.new("UIStroke")
+		uistroke_3.Color = Color3.new(1, 1, 1)
+		uistroke_3.Parent = text_label
+
+		local uigradient_2 = Instance.new("UIGradient")
+		uigradient_2.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(0, 0.235294, 1)), ColorSequenceKeypoint.new(1, Color3.new(1, 0, 0.0156863))})
+		uigradient_2.Parent = uistroke_3
+	end
+	
+	
+	local text_button = Instance.new("TextButton")
+	text_button.Font = Enum.Font.SourceSans
+	text_button.Text = ""
+	text_button.TextColor3 = Color3.new(0, 0, 0)
+	text_button.TextSize = 14
+	text_button.BackgroundColor3 = Color3.new(1, 1, 1)
+	text_button.BackgroundTransparency = 1
+	text_button.BorderColor3 = Color3.new(0, 0, 0)
+	text_button.BorderSizePixel = 0
+	text_button.Size = UDim2.new(0, 47, 0, 50)
+	text_button.Visible = true
+	text_button.Parent = main_button
+	
+	local modules = {}
+	
+	task.spawn(function()
+		local script = local_script
+
+		local oldreq = require
+		local function require(target)
+			if modules[target] then
+				return modules[target]()
+			end
+			return oldreq(target)
+		end
+
+		local open = true
+		local button = script.Parent.TextButton
+		local tabs = script.Parent.Frame
+
+		button.MouseButton2Click:Connect(function()
+			if open == true then
+				tabs.Active = false
+				tabs.Visible = false
+				open = false
+			elseif open == false then
+				tabs.Active = true
+				tabs.Visible = true
+				open = true
+			end
+		end)
+	end)
+	return Buttons
+end
+
+
+main = library:CreateWindow()
+
+main:CreateButton("Hi", function()
+	print("hi")
+end)
